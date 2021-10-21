@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="techy.Views.ItemDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Name" FontSize="Medium" />
+        <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
+        <Label Text="System:" FontSize="Medium" />
+        <Picker Title="Choose System" BackgroundColor="White"
+                                    SelectedItem="{Binding System, Mode=TwoWay}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Xbox Series X</x:String>
+                    <x:String>Stadia</x:String>
+                    <x:String>Nintendo Switch</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Description" FontSize="Medium" />
+        <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+
+        <Label Text="Rating" FontSize="Medium" />
+        <Picker Title="Choose Value" BackgroundColor="White"
+                                    SelectedItem="{Binding Rating, Mode=TwoWay}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>1</x:Int32>
+                    <x:Int32>2</x:Int32>
+                    <x:Int32>3</x:Int32>
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>5</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Time" FontSize="Medium" />
+        <Editor Text="{Binding Time, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" Keyboard="Numeric"/>
+
+        <Label Text="Completion Status:" FontSize="Medium" />
+        <Picker Title="Choose Option" BackgroundColor="White"
+                                    SelectedItem="{Binding CompletionStatus, Mode=TwoWay}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Not Started</x:String>
+                    <x:String>In Progress</x:String>
+                    <x:String>Cancelled</x:String>
+                    <x:String>Finished</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Start Date" FontSize="Medium" />
+        <DatePicker MinimumDate="1/1/2020"
+            Date="{Binding StartDate}" />
+
+        <Label Text="End Date" FontSize="Medium" />
+        <DatePicker
+                Date="{Binding EndDate}"
+                />
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Save Item" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Delete Item" Command="{Binding DeleteCommand}" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>

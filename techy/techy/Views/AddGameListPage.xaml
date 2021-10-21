@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="techy.Views.AddGameListPage"
+             Title="{Binding Title}" 
+             x:Name="Game">
+
+
+    <ContentPage.Content>
+        <ScrollView AbsoluteLayout.LayoutFlags="All"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout BackgroundColor="White">
+                <Frame BackgroundColor="white" BorderColor="Silver" Margin="0,0,0,0"
+                       CornerRadius="0">
+                    <StackLayout>
+                        <Entry Text="{Binding GameName, Mode=TwoWay}" Placeholder="Search for a game" FontSize="Medium" />
+                        <Button Text="Search" Command="{Binding SearchCommand}"></Button>
+                        <ListView 
+                            IsVisible="{Binding ListFilled}"
+                            ItemsSource="{Binding Games}"
+                            CachingStrategy="RecycleElement"
+                            RefreshCommand="{Binding ListFilled}"
+                            HasUnevenRows="true">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+
+                                                <Label Text="{Binding name}"
+                                                        FontSize="17" 
+                                                       TextColor="Black"
+                                                        HorizontalTextAlignment="Start" 
+                                                        HorizontalOptions="StartAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+
+                    </StackLayout>
+
+
+
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
