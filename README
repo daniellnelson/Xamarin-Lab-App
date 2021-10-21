@@ -1,0 +1,8 @@
+This is a cross platform Xamarin Application for me to test out mobile app development ideas.
+
+So far it has the ability to create a list of things and a in progress search function. 
+
+The user can search for a game, and with use of the IGDB API, a record of at most 10 games with similar characters are returned in json format. 
+
+Currently finishing up the ability to select a record and store it as a new item instance. 
+
